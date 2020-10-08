@@ -7,18 +7,20 @@ module.exports={
        res.render('../views/register');
    },
    //Fonction pour enregistrer un user
-   register:(req, res) => {
-       let username = req.body.username;
-       let email = req.body.email;
-       let password = req.body.password;
-       //import User de registerModel
-       let newUser = new registerModel.User({
-               username:username,
-               email:email,
-               password:password
-           });
-           newUser.save();
-           res.send(newUser);
+   register: async (req, res) => {
+        let user = await registerModel.User.findOne({ email: req.body.email });
+        if (user) {
+            return res.status(400).send('That user already exists!');
+        } else {
+            // Insert the new user if they do not exist yet
+            user = new registerModel.User({
+                Username: req.body.username,
+                Email: req.body.email,
+                Password: req.body.password
+            });
+            await user.save();
+            res.render('../views/register');
+    }
        }
    }
 

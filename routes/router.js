@@ -31,5 +31,7 @@ router.post('/register', registerController.register);
 router.get('/shop-detail', shopDetailController.display);
 router.get('/shop', shopController.display);
 router.get('/signin', signinController.display);
+router.post('/signin', signinController.signin);
 router.get('/wishlist', wishlistController.display);
+
 module.exports = router;
