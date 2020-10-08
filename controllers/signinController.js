@@ -1,4 +1,5 @@
 let registerModel = require('../models/registerModel');
+let User = registerModel.User
 
 module.exports={
     //Fonction pour display signin.ejs
@@ -8,11 +9,11 @@ module.exports={
    signin:(req, res) => {
        let usernameForm = req.body.username;
        let passwordForm = req.body.password;
-       let passwordDB = registerModel.User.findOne({ 'Username': usernameForm }, 'Password');
+       let passwordDB = User.findOne({ 'Username' : usernameForm }, 'Password');
        if (passwordForm == passwordDB) {
-           res.render('../views/home');
+           res.send('yes');
         } else {
-            res.render('../views/signin');
+            res.send('nope');
         }
     }
 }
