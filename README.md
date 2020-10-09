@@ -28,4 +28,4 @@ In this challenge, you will implement as many back-end functionalities as possib
 
 **Conclusion :**
 
-I couldn't implement all the back-end functionalities but I learn a lot about Node.js and I will continue this project on my free time to finish it.
+I couldn't implement all the back-end functionalities but I learned a lot about Node.js and I will continue this project on my free time to finish it.
