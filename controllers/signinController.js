@@ -22,8 +22,11 @@ module.exports={
     //Fonction pour vérifier si un User est bien authentifié avec passport local mongoose
     signin: function (req, res) {
         if(req.isAuthenticated()){
+           sess=req.session;
+           sess.username = req.body.username;
            res.redirect("../home");
         }else{
+           console.log("wrong username or password")
            res.redirect("/signin");
         }
    }

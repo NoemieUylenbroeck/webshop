@@ -1,6 +1,8 @@
 module.exports={
     //Fonction pour display home.ejs
     display:function(req, res) {
-       res.render('../views/home');
+        sess=req.session;
+        let sessionUsername= sess.username;
+        res.render('../views/home',{sessionUsername : sessionUsername});
    }
 }
