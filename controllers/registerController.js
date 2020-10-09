@@ -1,5 +1,5 @@
-const express = require("express");
 let registerModel = require('../models/registerModel');
+const bcrypt = require('bcrypt');
 
 module.exports={
     //Fonction pour display register.ejs
@@ -18,8 +18,10 @@ module.exports={
                 Email: req.body.email,
                 Password: req.body.password
             });
+            const salt = await bcrypt.genSalt(10);
+            user.Password = await bcrypt.hash(user.Password, salt);
             await user.save();
-            res.render('../views/register');
+            res.render('../views/signin');
     }
        }
    }

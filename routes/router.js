@@ -16,6 +16,7 @@ const shopDetailController=require('../controllers/shop-detailController');
 const shopController=require('../controllers/shopController');
 const signinController=require('../controllers/signinController');
 const wishlistController=require('../controllers/wishlistController');
+const newsletterController=require('../controllers/newsletterController');
 
 // Prend le controller avec la fonction correspondante
 router.get('/', homeController.display );
@@ -33,5 +34,6 @@ router.get('/shop', shopController.display);
 router.get('/signin', signinController.display);
 router.post('/signin', signinController.signin);
 router.get('/wishlist', wishlistController.display);
+router.post('/newsletter', newsletterController.newsletter);
 
 module.exports = router;

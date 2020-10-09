@@ -1,19 +1,23 @@
+const bcrypt = require('bcrypt');
 let registerModel = require('../models/registerModel');
-let User = registerModel.User
-
+const express = require('express');
+const router = express.Router();
+ 
 module.exports={
-    //Fonction pour display signin.ejs
+    //Fonction pour display register.ejs
     display:function(req, res) {
        res.render('../views/signin');
    },
-   signin:(req, res) => {
-       let usernameForm = req.body.username;
-       let passwordForm = req.body.password;
-       let passwordDB = User.findOne({ 'Username' : usernameForm }, 'Password');
-       if (passwordForm == passwordDB) {
-           res.send('yes');
-        } else {
-            res.send('nope');
+   //Fonction pour enregistrer un user
+   signin: async (req, res) => {
+       let user = await registerModel.User.findOne({ Username: req.body.username });
+       if (!user) {
+           return res.status(400).send('Incorrect username or password.');
         }
+        const validPassword = await bcrypt.compare(req.body.password, user.Password);
+        if (!validPassword) {
+            return res.status(400).send('Incorrect email or password.');
+        }
+        res.render('../views/home');
     }
 }
