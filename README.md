@@ -3,7 +3,7 @@
 
 **Duration :** 10 days
 
-**Objective :** learn Node.js, MVC, OOP
+**Objectives :** learn Node.js, MVC, OOP
 
 
 **Mission :**
