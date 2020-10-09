@@ -1,7 +1,10 @@
 # Freshshop
 **Type of challenge :** solo
+
 **Duration :** 10 days
+
 **Objective :** learn Node.js, MVC, OOP
+
 
 **Mission :**
 In this challenge, you will implement as many back-end functionalities as possible in OOP.
