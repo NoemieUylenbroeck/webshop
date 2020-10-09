@@ -12,7 +12,7 @@ module.exports={
                 Email: req.body.email,
             });
             await mailNewsletter.save();
-            res.render('../views/home');
+            res.redirect('../home');
     }
        }
    }

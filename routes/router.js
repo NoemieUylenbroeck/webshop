@@ -1,8 +1,5 @@
 const express = require('express');
-const bodyParser = require("body-parser");
 let router = express.Router();
-
-router.use(bodyParser.urlencoded({extended : true}));
 
 const homeController=require('../controllers/homeController');
 const aboutController=require('../controllers/aboutController');
@@ -17,6 +14,7 @@ const shopController=require('../controllers/shopController');
 const signinController=require('../controllers/signinController');
 const wishlistController=require('../controllers/wishlistController');
 const newsletterController=require('../controllers/newsletterController');
+const signoutController=require('../controllers/signoutController');
 
 // Prend le controller avec la fonction correspondante
 router.get('/', homeController.display );
@@ -35,5 +33,6 @@ router.get('/signin', signinController.display);
 router.post('/signin', signinController.signin);
 router.get('/wishlist', wishlistController.display);
 router.post('/newsletter', newsletterController.newsletter);
+router.get('/signout', signoutController.signout);
 
 module.exports = router;
